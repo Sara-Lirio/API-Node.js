@@ -1,10 +1,15 @@
+import Dica from "../model/dica-model"
+
 const dicaController = (app) => {
     app.get('/dica',(req,res) => {
-        res.json("Rota da Dica")
+        const dica = new Dica ()
+        res.json({"Dicas": dica.pegaDica()})
     })
 
     app.post('/dica',(req,res) => {
-        res.json('Rodando post')
+        const dica = new Dica(req.body.dica)
+        dica.insereDica(dica)
+        res.json({"Dicas":dica})
     })
 }
 
