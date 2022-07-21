@@ -1,4 +1,4 @@
-import Dica from "../model/dica-model"
+import Dica from "../model/dica-model.js"
 
 const dicaController = (app) => {
     app.get('/dica',(req,res) => {
