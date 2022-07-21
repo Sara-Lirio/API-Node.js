@@ -1,24 +1,30 @@
 import dica from "../database/db.js"
 import Dicas from "../model/model.js"
+import dicaAleatoria from "../database/dicasAleatorias.js"
 
 const dicaController = (app) => {
-    app.post('/create', (req, res) => { //salva a dica
-        const dicas = new Dicas (req.body.dicas)
-        res.json({ "Dicas": dicas.insereDicas(dicas) })
-    })
-
-    app.get('/tips', (req, res) => { //devolve a dica
+    app.post('/create', (req, res) => { //cria e salva a dica
+        const body = req.body
         try {
-            res.json({ "msg": "Dica aleatória", "Dica": dica[parseInt(Math.random()*dica.length)], "erro": false }
+            const dicas = new Dicas(body.dica)
+            dicas.insereDicas(dicas) 
+            res.json({ "msg":"Dica adicionada com sucesso","Dicas": dicas,"erro":false }
             )
-        } catch (error) {
+        } catch(error){
             res.json(
                 {
-                    "msg": error.message,
-                    "erro": true
+                    "msg":error.message,
+                    "erro":true
                 }
             )
-        }
+        }})
+    
+
+    app.get('/tips', (req, res) => { //devolve a dica
+        const dicas = dicaAleatoria[parseInt(Math.random() * dicaAleatoria.length)]
+        res.json({ "msg": "Dica aleatória", "Dica": dicas, "erro": false }
+        )
+
     })
 }
 

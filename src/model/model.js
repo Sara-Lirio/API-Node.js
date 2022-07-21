@@ -1,13 +1,16 @@
 import dica from "../database/db.js"
 
+let id = 1
 class Dicas {
-    constructor(dicas){
-        this.dicas=dicas
+    constructor(d) {
+        this.id = id++
+        this.d = d
     }
 
     insereDicas = (dicas) => {
-        dica.dicas.push(dicas)
+        dica.dica.push(dicas)
     }
+
 }
 
 export default Dicas
