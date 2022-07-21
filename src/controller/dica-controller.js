@@ -1,11 +1,11 @@
 import dica from "../database/db.js"
 
 const dicaController = (app) => {
-    app.get('/dica', (req, res) => {
-        res.json({ "Dica": dica, "erro": false })
+    app.post('/create', (req, res) => { //salva a dica
+        res.json({ "Dica": dica.push(), "erro": false })
     })
 
-    app.post('/dica', (req, res) => {
+    app.get('/tips', (req, res) => { //devolve a dica
         const body = req.body
         try {
             res.json({ "msg": "Dica aleatória", "Dica": dica[parseInt(Math.random()*dica.length)], "erro": false }
