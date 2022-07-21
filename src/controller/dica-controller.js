@@ -1,15 +1,23 @@
-import Dica from "../model/dica-model.js"
+import dica from "../database/db.js"
 
 const dicaController = (app) => {
-    app.get('/dica',(req,res) => {
-        const dica = new Dica ()
-        res.json({"Dicas": dica.pegaDica()})
+    app.get('/dica', (req, res) => {
+        res.json({ "Dica": dica, "erro": false })
     })
 
-    app.post('/dica',(req,res) => {
-        const dica = new Dica(req.body.dica)
-        dica.insereDica(dica)
-        res.json({"Dicas":dica})
+    app.post('/dica', (req, res) => {
+        const body = req.body
+        try {
+            res.json({ "msg": "Dica aleatória", "Dica": dica[parseInt(Math.random()*dica.length)], "erro": false }
+            )
+        } catch (error) {
+            res.json(
+                {
+                    "msg": error.message,
+                    "erro": true
+                }
+            )
+        }
     })
 }
 
