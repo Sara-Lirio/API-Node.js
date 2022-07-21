@@ -1,8 +1,10 @@
 import dica from "../database/db.js"
+import Dicas from "../model/model.js"
 
 const dicaController = (app) => {
     app.post('/create', (req, res) => { //salva a dica
-        res.json({ "Dicas": dica.push(dica) })
+        const dicas = new Dicas (req.body.dicas)
+        res.json({ "Dicas": dicas.insereDicas(dicas) })
     })
 
     app.get('/tips', (req, res) => { //devolve a dica
