@@ -30,4 +30,4 @@ Sprint Semanal 8 - Mod.4 - Resilia Educação<br><br>
 ![image](https://user-images.githubusercontent.com/98292860/180253169-d3ca9caf-0e1f-4b4b-b631-8b163f5dcd9f.png)<br>
 
 **Rota GET** - Dica aleatória<br>
-![image](https://user-images.githubusercontent.com/98292860/180258038-f18f4ebd-63ec-43f5-a85f-30abbdc9bcee.png)
+![image](https://user-images.githubusercontent.com/98292860/180261297-36421e54-00f8-46b3-b5e1-311cf6ab4085.png)
